@@ -1,2 +1,4 @@
 build/
 src/diffusers.egg-info/
+src/diffusers/__pycache__
+**/__pycache__/
