@@ -402,7 +402,7 @@ class KUpsample2D(nn.Module):
 
 class ResnetBlock2D(nn.Module):
     r"""
-    A Resnet block.
+    A Resnet block. Optionaly condition on motion feature
 
     Parameters:
         in_channels (`int`): The number of channels in the input.
@@ -435,6 +435,7 @@ class ResnetBlock2D(nn.Module):
         self,
         *,
         in_channels,
+        m_channels=0,
         out_channels=None,
         conv_shortcut=False,
         dropout=0.0,
@@ -464,7 +465,9 @@ class ResnetBlock2D(nn.Module):
         self.down = down
         self.output_scale_factor = output_scale_factor
         self.time_embedding_norm = time_embedding_norm
-
+        self.m_channels = m_channels
+        if self.m_channels != 0:
+            self.motion_cond_layer = MotionCondModule(self.m_channels, self.out_channels)
         if groups_out is None:
             groups_out = groups
 
@@ -531,7 +534,7 @@ class ResnetBlock2D(nn.Module):
                 in_channels, conv_2d_out_channels, kernel_size=1, stride=1, padding=0, bias=conv_shortcut_bias
             )
 
-    def forward(self, input_tensor, temb):
+    def forward(self, input_tensor, temb, m_feat = None):
         hidden_states = input_tensor
 
         if self.time_embedding_norm == "ada_group":
@@ -553,6 +556,8 @@ class ResnetBlock2D(nn.Module):
             hidden_states = self.downsample(hidden_states)
 
         hidden_states = self.conv1(hidden_states)
+        if m_feat is not None:
+            hidden_states = self.motion_cond_layer(hidden_states, m_feat)
 
         if self.time_emb_proj is not None:
             temb = self.time_emb_proj(self.nonlinearity(temb))[:, :, None, None]
@@ -581,6 +586,49 @@ class ResnetBlock2D(nn.Module):
 
         return output_tensor
 
+class MotionCondModule(nn.Module):
+    """
+    modified from https://github.com/NVlabs/SPADE/blob/master/models/networks/normalization.py
+    """
+    def __init__(self, motion_embed_dim, out_dim, interpolate_mode = 'nearest', param_free_norm_type = 'instance'):
+        super().__init__()
+
+        self.interpolate_mode = interpolate_mode
+        if param_free_norm_type == 'instance':
+            self.param_free_norm = nn.InstanceNorm2d(out_dim, affine=False)
+        elif param_free_norm_type == 'syncbatch':
+            self.param_free_norm = SynchronizedBatchNorm2d(out_dim, affine=False)
+        elif param_free_norm_type == 'batch':
+            self.param_free_norm = nn.BatchNorm2d(out_dim, affine=False)
+        else:
+            raise ValueError('%s is not a recognized param-free norm type in SPADE'
+                             % param_free_norm_type)
+
+        # The dimension of the intermediate embedding space. Yes, hardcoded.
+        nhidden = (motion_embed_dim + out_dim)//2
+
+        self.mlp_shared = nn.Sequential(
+            nn.Conv2d(motion_embed_dim, nhidden, 3, 1, 1),
+            nn.ReLU()
+        )
+        self.mlp_gamma = nn.Conv2d(nhidden, out_dim, 3, 1, 1)
+        self.mlp_beta = nn.Conv2d(nhidden, out_dim, 3, 1, 1)
+
+    def forward(self, x, motion_feat):
+
+        # Part 1. generate parameter-free normalized activations
+        normalized = self.param_free_norm(x)
+
+        # Part 2. produce scaling and bias conditioned on semantic map
+        motion_feat = F.interpolate(motion_feat, size=x.size()[2:], mode=self.interpolate_mode)
+        actv = self.mlp_shared(motion_feat)
+        gamma = self.mlp_gamma(actv)
+        beta = self.mlp_beta(actv)
+
+        # apply scale and bias
+        out = normalized * (1 + gamma) + beta
+
+        return out
 
 class Mish(torch.nn.Module):
     def forward(self, hidden_states):

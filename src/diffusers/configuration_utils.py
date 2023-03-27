@@ -29,6 +29,8 @@ import numpy as np
 from huggingface_hub import hf_hub_download
 from huggingface_hub.utils import EntryNotFoundError, RepositoryNotFoundError, RevisionNotFoundError
 from requests import HTTPError
+import omegaconf
+from omegaconf import DictConfig, OmegaConf
 
 from . import __version__
 from .utils import (
@@ -536,6 +538,10 @@ class ConfigMixin:
                 value = value.tolist()
             elif isinstance(value, PosixPath):
                 value = str(value)
+            elif isinstance(value, omegaconf.listconfig.ListConfig):
+                value = OmegaConf.to_object(value)
+            elif isinstance(value, omegaconf.DictConfig):
+                value = OmegaConf.to_object(value)
             return value
 
         config_dict = {k: to_json_saveable(v) for k, v in config_dict.items()}

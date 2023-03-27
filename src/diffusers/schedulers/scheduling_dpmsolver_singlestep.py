@@ -518,7 +518,7 @@ class DPMSolverSinglestepScheduler(SchedulerMixin, ConfigMixin):
         model_output: torch.FloatTensor,
         timestep: int,
         sample: torch.FloatTensor,
-        return_dict: bool = True,
+        return_dict: bool = True
     ) -> Union[SchedulerOutput, Tuple]:
         """
         Step function propagating the sample with the singlestep DPM-Solver.

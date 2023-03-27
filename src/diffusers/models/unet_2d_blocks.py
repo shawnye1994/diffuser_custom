@@ -34,6 +34,7 @@ def get_down_block(
     resnet_eps,
     resnet_act_fn,
     attn_num_head_channels,
+    m_channels=0,
     resnet_groups=None,
     cross_attention_dim=None,
     downsample_padding=None,
@@ -50,6 +51,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -63,6 +65,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -75,6 +78,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -91,6 +95,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -112,6 +117,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -126,6 +132,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -138,6 +145,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -176,6 +184,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -186,6 +195,7 @@ def get_down_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_downsample=add_downsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -207,6 +217,7 @@ def get_up_block(
     resnet_eps,
     resnet_act_fn,
     attn_num_head_channels,
+    m_channels=0,
     resnet_groups=None,
     cross_attention_dim=None,
     dual_cross_attention=False,
@@ -223,6 +234,7 @@ def get_up_block(
             out_channels=out_channels,
             prev_output_channel=prev_output_channel,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -236,6 +248,7 @@ def get_up_block(
             out_channels=out_channels,
             prev_output_channel=prev_output_channel,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -251,6 +264,7 @@ def get_up_block(
             out_channels=out_channels,
             prev_output_channel=prev_output_channel,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -272,6 +286,7 @@ def get_up_block(
             out_channels=out_channels,
             prev_output_channel=prev_output_channel,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -287,6 +302,7 @@ def get_up_block(
             out_channels=out_channels,
             prev_output_channel=prev_output_channel,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -301,6 +317,7 @@ def get_up_block(
             out_channels=out_channels,
             prev_output_channel=prev_output_channel,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -313,6 +330,7 @@ def get_up_block(
             out_channels=out_channels,
             prev_output_channel=prev_output_channel,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -348,6 +366,7 @@ def get_up_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -358,6 +377,7 @@ def get_up_block(
             in_channels=in_channels,
             out_channels=out_channels,
             temb_channels=temb_channels,
+            m_channels=m_channels,
             add_upsample=add_upsample,
             resnet_eps=resnet_eps,
             resnet_act_fn=resnet_act_fn,
@@ -373,6 +393,7 @@ class UNetMidBlock2D(nn.Module):
         self,
         in_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -394,6 +415,7 @@ class UNetMidBlock2D(nn.Module):
                 in_channels=in_channels,
                 out_channels=in_channels,
                 temb_channels=temb_channels,
+                m_channels=m_channels,
                 eps=resnet_eps,
                 groups=resnet_groups,
                 dropout=dropout,
@@ -424,6 +446,7 @@ class UNetMidBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=in_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -437,12 +460,12 @@ class UNetMidBlock2D(nn.Module):
         self.attentions = nn.ModuleList(attentions)
         self.resnets = nn.ModuleList(resnets)
 
-    def forward(self, hidden_states, temb=None):
-        hidden_states = self.resnets[0](hidden_states, temb)
+    def forward(self, hidden_states, temb=None, m_feat=None):
+        hidden_states = self.resnets[0](hidden_states, temb, m_feat)
         for attn, resnet in zip(self.attentions, self.resnets[1:]):
             if attn is not None:
                 hidden_states = attn(hidden_states)
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
         return hidden_states
 
@@ -452,6 +475,7 @@ class UNetMidBlock2DCrossAttn(nn.Module):
         self,
         in_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -478,6 +502,7 @@ class UNetMidBlock2DCrossAttn(nn.Module):
                 in_channels=in_channels,
                 out_channels=in_channels,
                 temb_channels=temb_channels,
+                m_channels=m_channels,
                 eps=resnet_eps,
                 groups=resnet_groups,
                 dropout=dropout,
@@ -519,6 +544,7 @@ class UNetMidBlock2DCrossAttn(nn.Module):
                     in_channels=in_channels,
                     out_channels=in_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -533,16 +559,16 @@ class UNetMidBlock2DCrossAttn(nn.Module):
         self.resnets = nn.ModuleList(resnets)
 
     def forward(
-        self, hidden_states, temb=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
+        self, hidden_states, temb=None, m_feat=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
     ):
-        hidden_states = self.resnets[0](hidden_states, temb)
+        hidden_states = self.resnets[0](hidden_states, temb, m_feat)
         for attn, resnet in zip(self.attentions, self.resnets[1:]):
             hidden_states = attn(
                 hidden_states,
                 encoder_hidden_states=encoder_hidden_states,
                 cross_attention_kwargs=cross_attention_kwargs,
             ).sample
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
         return hidden_states
 
@@ -552,6 +578,7 @@ class UNetMidBlock2DSimpleCrossAttn(nn.Module):
         self,
         in_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -578,6 +605,7 @@ class UNetMidBlock2DSimpleCrossAttn(nn.Module):
                 in_channels=in_channels,
                 out_channels=in_channels,
                 temb_channels=temb_channels,
+                m_channels=m_channels,
                 eps=resnet_eps,
                 groups=resnet_groups,
                 dropout=dropout,
@@ -608,6 +636,7 @@ class UNetMidBlock2DSimpleCrossAttn(nn.Module):
                     in_channels=in_channels,
                     out_channels=in_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -622,10 +651,10 @@ class UNetMidBlock2DSimpleCrossAttn(nn.Module):
         self.resnets = nn.ModuleList(resnets)
 
     def forward(
-        self, hidden_states, temb=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
+        self, hidden_states, temb=None, m_feat=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
     ):
         cross_attention_kwargs = cross_attention_kwargs if cross_attention_kwargs is not None else {}
-        hidden_states = self.resnets[0](hidden_states, temb)
+        hidden_states = self.resnets[0](hidden_states, temb, m_feat)
         for attn, resnet in zip(self.attentions, self.resnets[1:]):
             # attn
             hidden_states = attn(
@@ -636,7 +665,7 @@ class UNetMidBlock2DSimpleCrossAttn(nn.Module):
             )
 
             # resnet
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
         return hidden_states
 
@@ -647,6 +676,7 @@ class AttnDownBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -670,6 +700,7 @@ class AttnDownBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -703,11 +734,11 @@ class AttnDownBlock2D(nn.Module):
         else:
             self.downsamplers = None
 
-    def forward(self, hidden_states, temb=None):
+    def forward(self, hidden_states, temb=None, m_feat=None):
         output_states = ()
 
         for resnet, attn in zip(self.resnets, self.attentions):
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
             hidden_states = attn(hidden_states)
             output_states += (hidden_states,)
 
@@ -726,6 +757,7 @@ class CrossAttnDownBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -757,6 +789,7 @@ class CrossAttnDownBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -808,7 +841,7 @@ class CrossAttnDownBlock2D(nn.Module):
         self.gradient_checkpointing = False
 
     def forward(
-        self, hidden_states, temb=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
+        self, hidden_states, temb=None, m_feat=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
     ):
         # TODO(Patrick, William) - attention mask is not used
         output_states = ()
@@ -825,7 +858,7 @@ class CrossAttnDownBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
                 hidden_states = torch.utils.checkpoint.checkpoint(
                     create_custom_forward(attn, return_dict=False),
                     hidden_states,
@@ -833,7 +866,7 @@ class CrossAttnDownBlock2D(nn.Module):
                     cross_attention_kwargs,
                 )[0]
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
                 hidden_states = attn(
                     hidden_states,
                     encoder_hidden_states=encoder_hidden_states,
@@ -857,6 +890,7 @@ class DownBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -878,6 +912,7 @@ class DownBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -903,7 +938,7 @@ class DownBlock2D(nn.Module):
 
         self.gradient_checkpointing = False
 
-    def forward(self, hidden_states, temb=None):
+    def forward(self, hidden_states, temb=None, m_feat=None):
         output_states = ()
 
         for resnet in self.resnets:
@@ -915,9 +950,9 @@ class DownBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
 
             output_states += (hidden_states,)
 
@@ -1069,6 +1104,7 @@ class AttnSkipDownBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -1091,6 +1127,7 @@ class AttnSkipDownBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=min(in_channels // 4, 32),
                     groups_out=min(out_channels // 4, 32),
@@ -1115,6 +1152,7 @@ class AttnSkipDownBlock2D(nn.Module):
                 in_channels=out_channels,
                 out_channels=out_channels,
                 temb_channels=temb_channels,
+                m_channels=m_channels,
                 eps=resnet_eps,
                 groups=min(out_channels // 4, 32),
                 dropout=dropout,
@@ -1133,16 +1171,16 @@ class AttnSkipDownBlock2D(nn.Module):
             self.downsamplers = None
             self.skip_conv = None
 
-    def forward(self, hidden_states, temb=None, skip_sample=None):
+    def forward(self, hidden_states, temb=None, m_feat=None, skip_sample=None):
         output_states = ()
 
         for resnet, attn in zip(self.resnets, self.attentions):
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
             hidden_states = attn(hidden_states)
             output_states += (hidden_states,)
 
         if self.downsamplers is not None:
-            hidden_states = self.resnet_down(hidden_states, temb)
+            hidden_states = self.resnet_down(hidden_states, temb, m_feat)
             for downsampler in self.downsamplers:
                 skip_sample = downsampler(skip_sample)
 
@@ -1159,6 +1197,7 @@ class SkipDownBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -1179,6 +1218,7 @@ class SkipDownBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=min(in_channels // 4, 32),
                     groups_out=min(out_channels // 4, 32),
@@ -1195,6 +1235,7 @@ class SkipDownBlock2D(nn.Module):
                 in_channels=out_channels,
                 out_channels=out_channels,
                 temb_channels=temb_channels,
+                m_channels=m_channels,
                 eps=resnet_eps,
                 groups=min(out_channels // 4, 32),
                 dropout=dropout,
@@ -1213,15 +1254,15 @@ class SkipDownBlock2D(nn.Module):
             self.downsamplers = None
             self.skip_conv = None
 
-    def forward(self, hidden_states, temb=None, skip_sample=None):
+    def forward(self, hidden_states, temb=None, m_feat=None, skip_sample=None):
         output_states = ()
 
         for resnet in self.resnets:
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
             output_states += (hidden_states,)
 
         if self.downsamplers is not None:
-            hidden_states = self.resnet_down(hidden_states, temb)
+            hidden_states = self.resnet_down(hidden_states, temb, m_feat)
             for downsampler in self.downsamplers:
                 skip_sample = downsampler(skip_sample)
 
@@ -1238,6 +1279,7 @@ class ResnetDownsampleBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -1258,6 +1300,7 @@ class ResnetDownsampleBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -1277,6 +1320,7 @@ class ResnetDownsampleBlock2D(nn.Module):
                         in_channels=out_channels,
                         out_channels=out_channels,
                         temb_channels=temb_channels,
+                        m_channels=m_channels,
                         eps=resnet_eps,
                         groups=resnet_groups,
                         dropout=dropout,
@@ -1293,7 +1337,7 @@ class ResnetDownsampleBlock2D(nn.Module):
 
         self.gradient_checkpointing = False
 
-    def forward(self, hidden_states, temb=None):
+    def forward(self, hidden_states, temb=None, m_feat=None):
         output_states = ()
 
         for resnet in self.resnets:
@@ -1305,15 +1349,15 @@ class ResnetDownsampleBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
 
             output_states += (hidden_states,)
 
         if self.downsamplers is not None:
             for downsampler in self.downsamplers:
-                hidden_states = downsampler(hidden_states, temb)
+                hidden_states = downsampler(hidden_states, temb, m_feat)
 
             output_states += (hidden_states,)
 
@@ -1326,6 +1370,7 @@ class SimpleCrossAttnDownBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -1355,6 +1400,7 @@ class SimpleCrossAttnDownBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -1387,6 +1433,7 @@ class SimpleCrossAttnDownBlock2D(nn.Module):
                         in_channels=out_channels,
                         out_channels=out_channels,
                         temb_channels=temb_channels,
+                        m_channels=m_channels,
                         eps=resnet_eps,
                         groups=resnet_groups,
                         dropout=dropout,
@@ -1404,14 +1451,14 @@ class SimpleCrossAttnDownBlock2D(nn.Module):
         self.gradient_checkpointing = False
 
     def forward(
-        self, hidden_states, temb=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
+        self, hidden_states, temb=None, m_feat=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
     ):
         output_states = ()
         cross_attention_kwargs = cross_attention_kwargs if cross_attention_kwargs is not None else {}
 
         for resnet, attn in zip(self.resnets, self.attentions):
             # resnet
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
             # attn
             hidden_states = attn(
@@ -1425,7 +1472,7 @@ class SimpleCrossAttnDownBlock2D(nn.Module):
 
         if self.downsamplers is not None:
             for downsampler in self.downsamplers:
-                hidden_states = downsampler(hidden_states, temb)
+                hidden_states = downsampler(hidden_states, temb, m_feat)
 
             output_states += (hidden_states,)
 
@@ -1438,6 +1485,7 @@ class KDownBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 4,
         resnet_eps: float = 1e-5,
@@ -1457,6 +1505,7 @@ class KDownBlock2D(nn.Module):
                 ResnetBlock2D(
                     in_channels=in_channels,
                     out_channels=out_channels,
+                    m_channels=m_channels,
                     dropout=dropout,
                     temb_channels=temb_channels,
                     groups=groups,
@@ -1478,7 +1527,7 @@ class KDownBlock2D(nn.Module):
 
         self.gradient_checkpointing = False
 
-    def forward(self, hidden_states, temb=None):
+    def forward(self, hidden_states, temb=None, m_feat=None):
         output_states = ()
 
         for resnet in self.resnets:
@@ -1490,9 +1539,9 @@ class KDownBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
 
             output_states += (hidden_states,)
 
@@ -1510,6 +1559,7 @@ class KCrossAttnDownBlock2D(nn.Module):
         out_channels: int,
         temb_channels: int,
         cross_attention_dim: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 4,
         resnet_group_size: int = 32,
@@ -1536,6 +1586,7 @@ class KCrossAttnDownBlock2D(nn.Module):
                     out_channels=out_channels,
                     dropout=dropout,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     groups=groups,
                     groups_out=groups_out,
                     eps=resnet_eps,
@@ -1569,7 +1620,7 @@ class KCrossAttnDownBlock2D(nn.Module):
         self.gradient_checkpointing = False
 
     def forward(
-        self, hidden_states, temb=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
+        self, hidden_states, temb=None, m_feat=None, encoder_hidden_states=None, attention_mask=None, cross_attention_kwargs=None
     ):
         output_states = ()
 
@@ -1585,7 +1636,7 @@ class KCrossAttnDownBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
                 hidden_states = torch.utils.checkpoint.checkpoint(
                     create_custom_forward(attn, return_dict=False),
                     hidden_states,
@@ -1594,7 +1645,7 @@ class KCrossAttnDownBlock2D(nn.Module):
                     cross_attention_kwargs,
                 )
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
                 hidden_states = attn(
                     hidden_states,
                     encoder_hidden_states=encoder_hidden_states,
@@ -1622,6 +1673,7 @@ class AttnUpBlock2D(nn.Module):
         prev_output_channel: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0, 
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -1646,6 +1698,7 @@ class AttnUpBlock2D(nn.Module):
                     in_channels=resnet_in_channels + res_skip_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -1673,14 +1726,14 @@ class AttnUpBlock2D(nn.Module):
         else:
             self.upsamplers = None
 
-    def forward(self, hidden_states, res_hidden_states_tuple, temb=None):
+    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, m_feat=None):
         for resnet, attn in zip(self.resnets, self.attentions):
             # pop res hidden states
             res_hidden_states = res_hidden_states_tuple[-1]
             res_hidden_states_tuple = res_hidden_states_tuple[:-1]
             hidden_states = torch.cat([hidden_states, res_hidden_states], dim=1)
 
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
             hidden_states = attn(hidden_states)
 
         if self.upsamplers is not None:
@@ -1697,6 +1750,7 @@ class CrossAttnUpBlock2D(nn.Module):
         out_channels: int,
         prev_output_channel: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -1729,6 +1783,7 @@ class CrossAttnUpBlock2D(nn.Module):
                     in_channels=resnet_in_channels + res_skip_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -1778,6 +1833,7 @@ class CrossAttnUpBlock2D(nn.Module):
         hidden_states,
         res_hidden_states_tuple,
         temb=None,
+        m_feat=None,
         encoder_hidden_states=None,
         cross_attention_kwargs=None,
         upsample_size=None,
@@ -1801,7 +1857,7 @@ class CrossAttnUpBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
                 hidden_states = torch.utils.checkpoint.checkpoint(
                     create_custom_forward(attn, return_dict=False),
                     hidden_states,
@@ -1809,7 +1865,7 @@ class CrossAttnUpBlock2D(nn.Module):
                     cross_attention_kwargs,
                 )[0]
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
                 hidden_states = attn(
                     hidden_states,
                     encoder_hidden_states=encoder_hidden_states,
@@ -1830,6 +1886,7 @@ class UpBlock2D(nn.Module):
         prev_output_channel: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -1852,6 +1909,7 @@ class UpBlock2D(nn.Module):
                     in_channels=resnet_in_channels + res_skip_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -1871,7 +1929,7 @@ class UpBlock2D(nn.Module):
 
         self.gradient_checkpointing = False
 
-    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, upsample_size=None):
+    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, m_feat=None, upsample_size=None):
         for resnet in self.resnets:
             # pop res hidden states
             res_hidden_states = res_hidden_states_tuple[-1]
@@ -1886,9 +1944,9 @@ class UpBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
 
         if self.upsamplers is not None:
             for upsampler in self.upsamplers:
@@ -2025,6 +2083,7 @@ class AttnSkipUpBlock2D(nn.Module):
         prev_output_channel: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -2049,6 +2108,7 @@ class AttnSkipUpBlock2D(nn.Module):
                     in_channels=resnet_in_channels + res_skip_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=min(resnet_in_channels + res_skip_channels // 4, 32),
                     groups_out=min(out_channels // 4, 32),
@@ -2075,6 +2135,7 @@ class AttnSkipUpBlock2D(nn.Module):
                 in_channels=out_channels,
                 out_channels=out_channels,
                 temb_channels=temb_channels,
+                m_channels=m_channels,
                 eps=resnet_eps,
                 groups=min(out_channels // 4, 32),
                 groups_out=min(out_channels // 4, 32),
@@ -2098,14 +2159,14 @@ class AttnSkipUpBlock2D(nn.Module):
             self.skip_norm = None
             self.act = None
 
-    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, skip_sample=None):
+    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, m_feat=None, skip_sample=None):
         for resnet in self.resnets:
             # pop res hidden states
             res_hidden_states = res_hidden_states_tuple[-1]
             res_hidden_states_tuple = res_hidden_states_tuple[:-1]
             hidden_states = torch.cat([hidden_states, res_hidden_states], dim=1)
 
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
         hidden_states = self.attentions[0](hidden_states)
 
@@ -2121,7 +2182,7 @@ class AttnSkipUpBlock2D(nn.Module):
 
             skip_sample = skip_sample + skip_sample_states
 
-            hidden_states = self.resnet_up(hidden_states, temb)
+            hidden_states = self.resnet_up(hidden_states, temb, m_feat)
 
         return hidden_states, skip_sample
 
@@ -2133,6 +2194,7 @@ class SkipUpBlock2D(nn.Module):
         prev_output_channel: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -2155,6 +2217,7 @@ class SkipUpBlock2D(nn.Module):
                     in_channels=resnet_in_channels + res_skip_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=min((resnet_in_channels + res_skip_channels) // 4, 32),
                     groups_out=min(out_channels // 4, 32),
@@ -2172,6 +2235,7 @@ class SkipUpBlock2D(nn.Module):
                 in_channels=out_channels,
                 out_channels=out_channels,
                 temb_channels=temb_channels,
+                m_channels=m_channels,
                 eps=resnet_eps,
                 groups=min(out_channels // 4, 32),
                 groups_out=min(out_channels // 4, 32),
@@ -2195,14 +2259,14 @@ class SkipUpBlock2D(nn.Module):
             self.skip_norm = None
             self.act = None
 
-    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, skip_sample=None):
+    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, m_feat=None, skip_sample=None):
         for resnet in self.resnets:
             # pop res hidden states
             res_hidden_states = res_hidden_states_tuple[-1]
             res_hidden_states_tuple = res_hidden_states_tuple[:-1]
             hidden_states = torch.cat([hidden_states, res_hidden_states], dim=1)
 
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
         if skip_sample is not None:
             skip_sample = self.upsampler(skip_sample)
@@ -2216,7 +2280,7 @@ class SkipUpBlock2D(nn.Module):
 
             skip_sample = skip_sample + skip_sample_states
 
-            hidden_states = self.resnet_up(hidden_states, temb)
+            hidden_states = self.resnet_up(hidden_states, temb, m_feat)
 
         return hidden_states, skip_sample
 
@@ -2228,6 +2292,7 @@ class ResnetUpsampleBlock2D(nn.Module):
         prev_output_channel: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -2250,6 +2315,7 @@ class ResnetUpsampleBlock2D(nn.Module):
                     in_channels=resnet_in_channels + res_skip_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -2269,6 +2335,7 @@ class ResnetUpsampleBlock2D(nn.Module):
                         in_channels=out_channels,
                         out_channels=out_channels,
                         temb_channels=temb_channels,
+                        m_channels=m_channels,
                         eps=resnet_eps,
                         groups=resnet_groups,
                         dropout=dropout,
@@ -2285,7 +2352,7 @@ class ResnetUpsampleBlock2D(nn.Module):
 
         self.gradient_checkpointing = False
 
-    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, upsample_size=None):
+    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, m_feat=None, upsample_size=None):
         for resnet in self.resnets:
             # pop res hidden states
             res_hidden_states = res_hidden_states_tuple[-1]
@@ -2300,13 +2367,13 @@ class ResnetUpsampleBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
 
         if self.upsamplers is not None:
             for upsampler in self.upsamplers:
-                hidden_states = upsampler(hidden_states, temb)
+                hidden_states = upsampler(hidden_states, temb, m_feat)
 
         return hidden_states
 
@@ -2318,6 +2385,7 @@ class SimpleCrossAttnUpBlock2D(nn.Module):
         out_channels: int,
         prev_output_channel: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 1,
         resnet_eps: float = 1e-6,
@@ -2348,6 +2416,7 @@ class SimpleCrossAttnUpBlock2D(nn.Module):
                     in_channels=resnet_in_channels + res_skip_channels,
                     out_channels=out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=resnet_groups,
                     dropout=dropout,
@@ -2380,6 +2449,7 @@ class SimpleCrossAttnUpBlock2D(nn.Module):
                         in_channels=out_channels,
                         out_channels=out_channels,
                         temb_channels=temb_channels,
+                        m_channels=m_channels,
                         eps=resnet_eps,
                         groups=resnet_groups,
                         dropout=dropout,
@@ -2401,6 +2471,7 @@ class SimpleCrossAttnUpBlock2D(nn.Module):
         hidden_states,
         res_hidden_states_tuple,
         temb=None,
+        m_feat=None,
         encoder_hidden_states=None,
         upsample_size=None,
         attention_mask=None,
@@ -2414,7 +2485,7 @@ class SimpleCrossAttnUpBlock2D(nn.Module):
             res_hidden_states_tuple = res_hidden_states_tuple[:-1]
             hidden_states = torch.cat([hidden_states, res_hidden_states], dim=1)
 
-            hidden_states = resnet(hidden_states, temb)
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
             # attn
             hidden_states = attn(
@@ -2426,7 +2497,7 @@ class SimpleCrossAttnUpBlock2D(nn.Module):
 
         if self.upsamplers is not None:
             for upsampler in self.upsamplers:
-                hidden_states = upsampler(hidden_states, temb)
+                hidden_states = upsampler(hidden_states, temb, m_feat)
 
         return hidden_states
 
@@ -2437,6 +2508,7 @@ class KUpBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 5,
         resnet_eps: float = 1e-5,
@@ -2460,6 +2532,7 @@ class KUpBlock2D(nn.Module):
                     in_channels=in_channels,
                     out_channels=k_out_channels if (i == num_layers - 1) else out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=groups,
                     groups_out=groups_out,
@@ -2479,7 +2552,7 @@ class KUpBlock2D(nn.Module):
 
         self.gradient_checkpointing = False
 
-    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, upsample_size=None):
+    def forward(self, hidden_states, res_hidden_states_tuple, temb=None, m_feat=None, upsample_size=None):
         res_hidden_states_tuple = res_hidden_states_tuple[-1]
         if res_hidden_states_tuple is not None:
             hidden_states = torch.cat([hidden_states, res_hidden_states_tuple], dim=1)
@@ -2493,9 +2566,9 @@ class KUpBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
 
         if self.upsamplers is not None:
             for upsampler in self.upsamplers:
@@ -2510,6 +2583,7 @@ class KCrossAttnUpBlock2D(nn.Module):
         in_channels: int,
         out_channels: int,
         temb_channels: int,
+        m_channels: int = 0,
         dropout: float = 0.0,
         num_layers: int = 4,
         resnet_eps: float = 1e-5,
@@ -2553,6 +2627,7 @@ class KCrossAttnUpBlock2D(nn.Module):
                     out_channels=out_channels,
                     conv_2d_out_channels=conv_2d_out_channels,
                     temb_channels=temb_channels,
+                    m_channels=m_channels,
                     eps=resnet_eps,
                     groups=groups,
                     groups_out=groups_out,
@@ -2593,6 +2668,7 @@ class KCrossAttnUpBlock2D(nn.Module):
         hidden_states,
         res_hidden_states_tuple,
         temb=None,
+        m_feat=None,
         encoder_hidden_states=None,
         cross_attention_kwargs=None,
         upsample_size=None,
@@ -2614,7 +2690,7 @@ class KCrossAttnUpBlock2D(nn.Module):
 
                     return custom_forward
 
-                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb)
+                hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
                 hidden_states = torch.utils.checkpoint.checkpoint(
                     create_custom_forward(attn, return_dict=False),
                     hidden_states,
@@ -2623,7 +2699,7 @@ class KCrossAttnUpBlock2D(nn.Module):
                     cross_attention_kwargs,
                 )[0]
             else:
-                hidden_states = resnet(hidden_states, temb)
+                hidden_states = resnet(hidden_states, temb, m_feat)
                 hidden_states = attn(
                     hidden_states,
                     encoder_hidden_states=encoder_hidden_states,

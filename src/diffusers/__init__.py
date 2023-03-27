@@ -1,6 +1,6 @@
 __version__ = "0.15.0.dev0"
 
-from .configuration_utils import ConfigMixin
+from .configuration_utils import ConfigMixin, register_to_config
 from .utils import (
     OptionalDependencyNotAvailable,
     is_flax_available,
@@ -41,6 +41,7 @@ else:
         UNet1DModel,
         UNet2DConditionModel,
         UNet2DModel,
+        UNet2DMotionCond,
         VQModel,
     )
     from .optimization import (
