@@ -86,6 +86,7 @@ else:
         RePaintScheduler,
         SchedulerMixin,
         ScoreSdeVeScheduler,
+        ScoreSdeVpScheduler,
         UnCLIPScheduler,
         UniPCMultistepScheduler,
         VQDiffusionScheduler,
