@@ -197,9 +197,11 @@ class TimestepEmbedding(nn.Module):
         else:
             raise ValueError(f"{post_act_fn} does not exist. Make sure to define one of 'silu', 'mish', or 'gelu'")
 
-    def forward(self, sample, condition=None):
+    def forward(self, sample):
+        """
         if condition is not None:
             sample = sample + self.cond_proj(condition)
+        """
         sample = self.linear_1(sample)
 
         if self.act is not None:

@@ -138,10 +138,14 @@ class Upsample2D(nn.Module):
 
         # TODO(Suraj, Patrick) - clean up after weight dicts are correctly renamed
         if self.use_conv:
+            #modified for torch jit script compiling
+            """
             if self.name == "conv":
                 hidden_states = self.conv(hidden_states)
             else:
                 hidden_states = self.Conv2d_0(hidden_states)
+            """
+            hidden_states = self.conv(hidden_states)
 
         return hidden_states
 
@@ -185,7 +189,7 @@ class Downsample2D(nn.Module):
         assert hidden_states.shape[1] == self.channels
         if self.use_conv and self.padding == 0:
             pad = (0, 1, 0, 1)
-            hidden_states = F.pad(hidden_states, pad, mode="constant", value=0)
+            hidden_states = F.pad(hidden_states, pad, mode="constant", value=0.)
 
         assert hidden_states.shape[1] == self.channels
         hidden_states = self.conv(hidden_states)
@@ -520,7 +524,8 @@ class ResnetBlock2D(nn.Module):
         elif self.down:
             if kernel == "fir":
                 fir_kernel = (1, 3, 3, 1)
-                self.downsample = lambda x: downsample_2d(x, kernel=fir_kernel)
+                #self.downsample = lambda x: downsample_2d(x, kernel=fir_kernel)
+                self.downsample = partial(downsample_2d, kernel=fir_kernel)
             elif kernel == "sde_vp":
                 self.downsample = partial(F.avg_pool2d, kernel_size=2, stride=2)
             else:
@@ -538,7 +543,9 @@ class ResnetBlock2D(nn.Module):
         hidden_states = input_tensor
 
         if self.time_embedding_norm == "ada_group":
-            hidden_states = self.norm1(hidden_states, temb)
+            #hidden_states = self.norm1(hidden_states, temb)
+            #modified for the torch jit script compiling
+            hidden_states = self.norm1(hidden_states)
         else:
             hidden_states = self.norm1(hidden_states)
 
@@ -566,7 +573,9 @@ class ResnetBlock2D(nn.Module):
             hidden_states = hidden_states + temb
 
         if self.time_embedding_norm == "ada_group":
-            hidden_states = self.norm2(hidden_states, temb)
+            #hidden_states = self.norm2(hidden_states, temb)
+            #modified for the torch jit script compiling
+            hidden_states = self.norm2(hidden_states)
         else:
             hidden_states = self.norm2(hidden_states)
 

@@ -88,7 +88,7 @@ class UNet2DMotionCond(ModelMixin, ConfigMixin):
         center_input_sample: bool = False,
         time_embedding_type: str = "positional",
         m_channels: int = 0,
-        freq_shift: int = 0,
+        freq_shift: float = 0.,
         flip_sin_to_cos: bool = True,
         down_block_types: Tuple[str] = ("DownBlock2D", "AttnDownBlock2D", "AttnDownBlock2D", "AttnDownBlock2D"),
         up_block_types: Tuple[str] = ("AttnUpBlock2D", "AttnUpBlock2D", "AttnUpBlock2D", "UpBlock2D"),

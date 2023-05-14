@@ -735,18 +735,21 @@ class AttnDownBlock2D(nn.Module):
             self.downsamplers = None
 
     def forward(self, hidden_states, temb=None, m_feat=None):
-        output_states = ()
+        output_states = []
 
         for resnet, attn in zip(self.resnets, self.attentions):
             hidden_states = resnet(hidden_states, temb, m_feat)
             hidden_states = attn(hidden_states)
-            output_states += (hidden_states,)
+            #output_states += (hidden_states,)
+            #modified for torch jit script compiling
+            output_states.append(hidden_states)
 
         if self.downsamplers is not None:
             for downsampler in self.downsamplers:
                 hidden_states = downsampler(hidden_states)
 
-            output_states += (hidden_states,)
+            #output_states += (hidden_states,)
+            output_states.append(hidden_states)
 
         return hidden_states, output_states
 
@@ -939,9 +942,10 @@ class DownBlock2D(nn.Module):
         self.gradient_checkpointing = False
 
     def forward(self, hidden_states, temb=None, m_feat=None):
-        output_states = ()
+        output_states = []
 
         for resnet in self.resnets:
+            """
             if self.training and self.gradient_checkpointing:
 
                 def create_custom_forward(module):
@@ -952,15 +956,19 @@ class DownBlock2D(nn.Module):
 
                 hidden_states = torch.utils.checkpoint.checkpoint(create_custom_forward(resnet), hidden_states, temb, m_feat)
             else:
-                hidden_states = resnet(hidden_states, temb, m_feat)
+            """
+            hidden_states = resnet(hidden_states, temb, m_feat)
 
-            output_states += (hidden_states,)
-
+            #modified for torch jit script compiling
+            #output_states += (hidden_states,)
+            output_states.append(hidden_states)
+            
         if self.downsamplers is not None:
             for downsampler in self.downsamplers:
                 hidden_states = downsampler(hidden_states)
 
-            output_states += (hidden_states,)
+            #output_states += (hidden_states,)
+            output_states.append(hidden_states)
 
         return hidden_states, output_states
 
