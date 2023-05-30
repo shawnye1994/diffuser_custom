@@ -22,18 +22,20 @@ from ..utils import BaseOutput
 from .embeddings import GaussianFourierProjection, TimestepEmbedding, Timesteps
 from .modeling_utils import ModelMixin
 from .unet_2d_blocks import UNetMidBlock2D, get_down_block, get_up_block
+from collections import namedtuple
 
-
+"""
 @dataclass
 class UNet2DOutput(BaseOutput):
-    """
+
     Args:
         sample (`torch.FloatTensor` of shape `(batch_size, num_channels, height, width)`):
             Hidden states output. Output of last layer of model.
-    """
 
     sample: torch.FloatTensor
-
+"""
+#used namedtuple to overload the original UNet2Doutput for the jit.trace during test
+UNet2DOutput = namedtuple('UNet2DOutput', 'sample')
 
 class UNet2DMotionCond(ModelMixin, ConfigMixin):
     r"""
@@ -323,7 +325,4 @@ class UNet2DMotionCond(ModelMixin, ConfigMixin):
             timesteps = timesteps.reshape((sample.shape[0], *([1] * len(sample.shape[1:]))))
             sample = sample / timesteps
 
-        if not return_dict:
-            return (sample,)
-
-        return UNet2DOutput(sample=sample)
+        if not r
